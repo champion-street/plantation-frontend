@@ -4,4 +4,5 @@ export interface IPlant {
     name: string;
     description: string;
     isWatered: boolean;
+    lastWatered: string | number | Date;
 }
