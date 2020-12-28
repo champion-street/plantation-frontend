@@ -10,7 +10,7 @@ export interface IHomeState {
 }
 
 
-class HomeComponent extends React.Component<IHomeProps, IHomeState>{
+class HomePage extends React.Component<IHomeProps, IHomeState>{
     constructor(props: IHomeProps) {
         super(props);
         this.state = {
@@ -58,4 +58,4 @@ class HomeComponent extends React.Component<IHomeProps, IHomeState>{
     }
 }
 
-export default HomeComponent;
+export default HomePage;

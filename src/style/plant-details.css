@@ -1,0 +1,5 @@
+.details-container.header {
+    display: flex;
+    flex-direction: row;
+
+}

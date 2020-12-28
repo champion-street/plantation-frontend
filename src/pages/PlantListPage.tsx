@@ -1,6 +1,6 @@
 import React from 'react';
 import {IPlant} from "../common/interfaces";
-import PlantComponent from "./PlantComponent";
+import PlantCardComponent from "../components/PlantCardComponent";
 import '../style/plant-list.css';
 import {connect} from 'react-redux';
 import {savePlants} from "../redux/actions";
@@ -15,7 +15,7 @@ export interface IPlantListState {
     plants: IPlant[];
 }
 
-class PlantListComponent extends React.Component<IPlantListProps, IPlantListState> {
+class PlantListPage extends React.Component<IPlantListProps, IPlantListState> {
     fbService: any;
     fbDatabase: any;
 
@@ -58,22 +58,20 @@ class PlantListComponent extends React.Component<IPlantListProps, IPlantListStat
             <div className='plant-list-container'>
                 <h1>Plant List here!</h1>
                 {plants.map( (plant, index) =>
-                    <PlantComponent {...plant} watering={this.watering} key={index}/>
+                    <PlantCardComponent {...plant} watering={this.watering} key={index}/>
                 )}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state: any): object => {
-    return {
+const mapStateToProps = (state: any): object => ({
         plants: state.plants.plants,
-    }
-}
+});
 
 const mapDispatchToProps: object = {
     savePlants,
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlantListComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(PlantListPage);

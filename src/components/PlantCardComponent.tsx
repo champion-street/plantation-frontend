@@ -1,7 +1,7 @@
 import React from 'react';
-import '../style/plant.css';
+import '../style/plant-card.css';
 import {IPlant} from "../common/interfaces";
-import {colorCalculator} from "../common/functions";
+import {colorCalculator, navigate} from "../common/functions";
 
 export interface IPlantProps extends IPlant {
     watering: (id: number | undefined) => void;
@@ -11,7 +11,7 @@ export interface IPlantState extends IPlant {
 
 }
 
-class PlantComponent extends React.Component<IPlantProps, IPlantState> {
+class PlantCardComponent extends React.Component<IPlantProps, IPlantState> {
     constructor(props: IPlantProps) {
         super(props);
         this.state = {
@@ -23,6 +23,8 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
             wateringDeadline: new Date(Date.now()),
             wateringCycle: 0,
         }
+
+        this.handleNavigate = this.handleNavigate.bind(this);
     }
 
     componentDidMount() {
@@ -39,6 +41,10 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
         }
     }
 
+    handleNavigate(): void {
+        navigate(`/plant/${this.state.id}`);
+    }
+
     render () {
         const {image, name, id, lastWatered, wateringDeadline, wateringCycle} = this.state;
         const wateredDate = new Date(lastWatered);
@@ -47,7 +53,7 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
                 <div className='plant-image-container'>
                     <img className={`plant-image ${colorCalculator(wateringDeadline, lastWatered)}-percent`} src={image} onClick={() => {this.props.watering(id)}} />
                 </div>
-                <div className='plant-data'>
+                <div className='plant-data' onClick={this.handleNavigate}>
                     <h2 className='plant-name'>{name}</h2>
                     <p>{`Watering Cycle: ${wateringCycle} day${wateringCycle > 1 ? 's' : ''}`}</p>
                     <p>Last watered: {wateredDate.getMonth() + 1}/{wateredDate.getDate()}/{wateredDate.getFullYear()}</p>
@@ -58,4 +64,4 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
     }
 }
 
-export default PlantComponent;
+export default PlantCardComponent;
