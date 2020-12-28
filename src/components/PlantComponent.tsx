@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/plant.css';
 import {IPlant} from "../common/interfaces";
+import {colorCalculator} from "../common/functions";
 
 export interface IPlantProps extends IPlant {
     watering: (id: number | undefined) => void;
@@ -19,7 +20,9 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
             description: '',
             image: '',
             isWatered: false,
-            lastWatered: Date.now(),
+            lastWatered: new Date(Date.now()),
+            wateringDeadline: new Date(Date.now()),
+            wateringCycle: 0,
         }
     }
 
@@ -38,16 +41,17 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
     }
 
     render () {
-        const {image, name, description, isWatered, id, lastWatered} = this.state;
+        const {image, name, description, id, lastWatered, wateringDeadline, wateringCycle} = this.state;
+        const wateredDate = new Date(lastWatered);
         return (
             <div className='plant-container'>
                 <div className='plant-image-container'>
-                    <img className={`plant-image ${isWatered ? 'watered' : ''}`} src={image} onClick={() => {this.props.watering(id)}} />
+                    <img className={`plant-image ${colorCalculator(wateringDeadline, lastWatered)}-percent`} src={image} onClick={() => {this.props.watering(id)}} />
                 </div>
                 <div className='plant-data'>
                     <h2 className='plant-name'>{name}</h2>
                     <p className='plant-description'>{description}</p>
-                    <p>{lastWatered.toString()}</p>
+                    <p>{wateredDate.getMonth() + 1} / {wateredDate.getDate()} / {wateredDate.getFullYear()}</p>
                 </div>
             </div>
         );

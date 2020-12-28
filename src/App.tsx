@@ -31,7 +31,7 @@ class App extends React.Component<IAppProps> {
     }
 
     componentDidMount() {
-        const plants = examplePlants;
+        const plants = [...examplePlants];
         this.props.savePlants(plants);
     }
 

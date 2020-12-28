@@ -33,6 +33,46 @@
     transition: 500ms;
 }
 
-.plant-image.watered {
-    border: solid 8px #6bff00;
+.plant-image.zero-percent {
+    border: solid 8px #00ff00;
+}
+
+.plant-image.ten-percent {
+    border: solid 8px #99ff00;
+}
+
+.plant-image.twenty-percent {
+    border: solid 8px #ccff00;
+}
+
+.plant-image.thirty-percent {
+    border: solid 8px #ffff00;
+}
+
+.plant-image.forty-percent {
+    border: solid 8px #ffcc00;
+}
+
+.plant-image.fifty-percent {
+    border: solid 8px #ffbb00;
+}
+
+.plant-image.sixty-percent {
+    border: solid 8px #ff9900;
+}
+
+.plant-image.seventy-percent {
+    border: solid 8px #ff5500;
+}
+
+.plant-image.eighty-percent {
+    border: solid 8px #ff3300;
+}
+
+.plant-image.ninety-percent {
+    border: solid 8px #ff0000;
+}
+
+.plant-image.hundred-percent {
+    border: solid 8px #000000;
 }

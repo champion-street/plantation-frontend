@@ -4,8 +4,7 @@ import PlantComponent from "./PlantComponent";
 import '../style/plant-list.css';
 import {connect} from 'react-redux';
 import {savePlants} from "../redux/actions";
-import {FB_CONFIG} from "../services/firebase/Config";
-import firebase from "firebase";
+import {examplePlants} from "../common/sampleData";
 
 export interface IPlantListProps {
     plants: IPlant[],
@@ -41,25 +40,7 @@ class PlantListComponent extends React.Component<IPlantListProps, IPlantListStat
             this.setState({
                 plants: this.props.plants,
             });
-
         }
-    }
-
-
-    render(): JSX.Element {
-        const {plants} = this.state;
-        console.log('plants at render: ', plants);
-        return (
-            <div>
-            <div className='plant-list-container'>
-                <h1>Plant List here!</h1>
-                {plants.map( (plant, index) =>
-                    <PlantComponent {...plant} watering={this.watering} key={index}/>
-                )}
-            </div>
-                <button onClick={this.resetList}>Reset list</button>
-            </div>
-        )
     }
 
     watering (id: number | undefined): void {
@@ -73,11 +54,53 @@ class PlantListComponent extends React.Component<IPlantListProps, IPlantListStat
     }
 
     resetList (): void {
-        const plants = this.state.plants.map(plant => {
-            plant.isWatered = false;
-            return plant;
-        });
+        const plants: IPlant[] = [
+            {
+                id: 1,
+                name: 'Monstrea',
+                description: 'Nagyon szep, levelei hasitottak',
+                image: './images/monstrea.jpg',
+                isWatered: false,
+                lastWatered: new Date('12/26/2020'),
+                wateringCycle: 3,
+                wateringDeadline: new Date('12/29/2020'),
+            }, {
+                id: 2,
+                name: 'Futoka',
+                description: 'Ez is szep, levelei futnak',
+                image: './images/futoka.jpg',
+                isWatered: false,
+                lastWatered: new Date('12/24/2020'),
+                wateringCycle: 4,
+                wateringDeadline: new Date('12/28/2020'),
+            }, {
+                id: 3,
+                name: 'Zoldike',
+                description: 'Megintcsak szep, leveleinek szele vilagos',
+                image: './images/zoldike.jpg',
+                isWatered: false,
+                lastWatered: new Date('12/25/2020'),
+                wateringCycle: 3,
+                wateringDeadline: new Date('12/28/2020'),
+            }
+        ];
         this.props.savePlants(plants);
+    }
+
+
+    render(): JSX.Element {
+        const {plants} = this.state;
+        return (
+            <div>
+            <div className='plant-list-container'>
+                <h1>Plant List here!</h1>
+                {plants.map( (plant, index) =>
+                    <PlantComponent {...plant} watering={this.watering} key={index}/>
+                )}
+            </div>
+                <button onClick={this.resetList}>Reset list</button>
+            </div>
+        )
     }
 }
 
