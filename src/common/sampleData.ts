@@ -1,7 +1,15 @@
 import {IPlant} from "./interfaces";
 
 export const examplePlants: IPlant[] = [
-     {
+    {
+        id: 1,
+        name: 'Monstrea',
+        description: 'Nagyon szep, levelei hasitottak',
+        image: './images/monstrea.jpg',
+        lastWatered: new Date('12/26/2020'),
+        wateringCycle: 3,
+        wateringDeadline: new Date('12/29/2020'),
+    }, {
         id: 2,
         name: 'Futoka',
         description: 'Ez is szep, levelei futnak',
