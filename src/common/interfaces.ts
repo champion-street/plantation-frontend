@@ -3,7 +3,6 @@ export interface IPlant {
     image: string;
     name: string;
     description: string;
-    isWatered: boolean;
     lastWatered: Date;
     wateringDeadline: Date;
     wateringCycle: number;

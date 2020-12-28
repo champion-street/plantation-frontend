@@ -19,7 +19,6 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
             name: '',
             description: '',
             image: '',
-            isWatered: false,
             lastWatered: new Date(Date.now()),
             wateringDeadline: new Date(Date.now()),
             wateringCycle: 0,
@@ -41,7 +40,7 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
     }
 
     render () {
-        const {image, name, description, id, lastWatered, wateringDeadline, wateringCycle} = this.state;
+        const {image, name, id, lastWatered, wateringDeadline, wateringCycle} = this.state;
         const wateredDate = new Date(lastWatered);
         return (
             <div className='plant-container'>
@@ -50,8 +49,9 @@ class PlantComponent extends React.Component<IPlantProps, IPlantState> {
                 </div>
                 <div className='plant-data'>
                     <h2 className='plant-name'>{name}</h2>
-                    <p className='plant-description'>{description}</p>
-                    <p>{wateredDate.getMonth() + 1} / {wateredDate.getDate()} / {wateredDate.getFullYear()}</p>
+                    <p>{`Watering Cycle: ${wateringCycle} day${wateringCycle > 1 ? 's' : ''}`}</p>
+                    <p>Last watered: {wateredDate.getMonth() + 1}/{wateredDate.getDate()}/{wateredDate.getFullYear()}</p>
+                    <p>{`Deadline: ${wateringDeadline.getMonth() + 1}/${wateringDeadline.getDate()}/${wateringDeadline.getFullYear()}`}</p>
                 </div>
             </div>
         );

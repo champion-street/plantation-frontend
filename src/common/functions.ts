@@ -22,7 +22,7 @@ export function colorCalculator(wateringDeadLine: Date, lastWatered: Date): stri
         console.log('actual: ', Math.floor(nowTime - wateredTime) );
         console.log('actualPercent: ', actualPercent);
     console.groupEnd();
-    if (actualPercent > 100) {
+    if (actualPercent > 100 || actualPercent < 0) {
         return 'hundred';
     } else if (actualPercent >= 0 && actualPercent <= 10) {
         return 'zero';
