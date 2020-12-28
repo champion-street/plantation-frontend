@@ -8,7 +8,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import {connect} from "react-redux";
 import {savePlants} from "./redux/actions";
 import {IPlant} from "./common/interfaces";
-import DatabaseService from './services/firebase/firebaseService';
+import DatabaseService from './services/firebase/DatabaseService';
 import {examplePlants} from "./common/sampleData";
 
 export interface IAppProps {
