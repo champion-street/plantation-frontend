@@ -65,15 +65,19 @@ class PlantDetailsPage extends React.Component<IPlantDetailsPageProps, IPlantDet
         return (
             <div className='details-container'>
                 <div className='header'>
-                    <img src={image} alt='hehe'/>
-                    <h1>{name}</h1>
+                    <div>
+                        <img src={image} alt='hehe' id='plant-picture'/>
+                    </div>
+                    <div className='header-name'>
+                        <h1>{name}</h1>
+                    </div>
                 </div>
                 <div className='body'>
                     <div>{description}</div>
                     <div className="data">
-                        <span>{`Last time watered: ${lastWatered.getMonth()}/${lastWatered.getDate()}/${lastWatered.getFullYear()}`}</span>
-                        <span>{`Next watering time: ${wateringDeadline.getMonth()}/${wateringDeadline.getDate()}/${wateringDeadline.getFullYear()}`}</span>
-                        <span>{`Watering cycle: ${wateringCycle}`}</span>
+                        <p>{`Last time watered: ${lastWatered.getMonth()}/${lastWatered.getDate()}/${lastWatered.getFullYear()}`}</p>
+                        <p>{`Next watering time: ${wateringDeadline.getMonth()}/${wateringDeadline.getDate()}/${wateringDeadline.getFullYear()}`}</p>
+                        <p>{`Watering cycle: ${wateringCycle}`}</p>
                     </div>
                 </div>
             </div>

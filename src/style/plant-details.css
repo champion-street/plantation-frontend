@@ -1,5 +1,24 @@
-.details-container.header {
-    display: flex;
-    flex-direction: row;
+.details-container {
+    text-align: start;
+}
 
+.details-container .header {
+    display: flex;
+    margin-top: 2vh;
+    margin-left: 2vh;
+}
+
+.details-container .header #plant-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.details-container .header .header-name {
+    padding-left: 5%;
+}
+
+.details-container .body {
+    margin-top: 2vh;
+    margin-left: 2vh;
 }
