@@ -51,7 +51,7 @@ class PlantCardComponent extends React.Component<IPlantProps, IPlantState> {
         return (
             <div className='plant-container'>
                 <div className='plant-image-container'>
-                    <img className={`plant-image ${colorCalculator(wateringDeadline, lastWatered)}-percent`} src={image} onClick={() => {this.props.watering(id)}} />
+                    <img className={`plant-image ${colorCalculator(wateringDeadline, lastWatered)}-percent`} src={image} onClick={() => {this.props.watering(id)}} alt='Virag Kepecske'/>
                 </div>
                 <div className='plant-data' onClick={this.handleNavigate}>
                     <h2 className='plant-name'>{name}</h2>

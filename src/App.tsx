@@ -11,8 +11,10 @@ import {IPlant} from "./common/interfaces";
 import DatabaseService from './services/firebase/DatabaseService';
 import {examplePlants} from "./common/sampleData";
 import PlantDetailsPage from "./pages/PlantDetailsPage";
+import PlantRegisterPage from "./pages/PlantRegisterPage";
 
 export interface IAppProps {
+    dynamicModalData: any;
     savePlants: (plants: IPlant[]) => void;
 }
 
@@ -28,6 +30,7 @@ class App extends React.Component<IAppProps> {
     }
 
     public static defaultProps = {
+        dynamicModalData: {},
         savePlants: void 0,
     }
 
@@ -45,6 +48,7 @@ class App extends React.Component<IAppProps> {
                         <Route exact={true} path={['/', '/home']} component={HomePage}/>
                         <Route exact={true} path='/list' component={PlantListPage}/>
                         <Route exact={true} path='/plant/:id' component={PlantDetailsPage}/>
+                        <Route exact={true} path='/register' component={PlantRegisterPage}/>
                     </Switch>
                 </Router>
             </div>
@@ -53,8 +57,12 @@ class App extends React.Component<IAppProps> {
 
 }
 
+const mapStateToProps = (state: any): object => ({
+    dynamicModalData: state.dynamicModal,
+});
+
 const mapDispatchToProps: object = {
     savePlants,
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

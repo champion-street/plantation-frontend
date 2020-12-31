@@ -1,8 +1,9 @@
-import {RESET_PLANTS, SAVE_PLANTS} from "../actionTypes";
+import {ADD_PLANT, SAVE_PLANTS} from "../actionTypes";
 import { IPlant } from "../../common/interfaces";
 
 interface IReducerAction {
-    plants: IPlant[],
+    plants?: IPlant[],
+    plant?: IPlant,
     type: string
 }
 
@@ -18,10 +19,12 @@ export default function (state = initialState, action: IReducerAction) {
     switch (action.type) {
         case SAVE_PLANTS:
             return {
-                ...state,
                 plants: action.plants
             };
-        case RESET_PLANTS:
+        case ADD_PLANT:
+            return {
+                plants: [...state.plants, action.plant]
+            };
         default:
             return state;
     }

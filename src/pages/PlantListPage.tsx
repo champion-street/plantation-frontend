@@ -4,7 +4,7 @@ import PlantCardComponent from "../components/PlantCardComponent";
 import '../style/plant-list.css';
 import {connect} from 'react-redux';
 import {savePlants} from "../redux/actions";
-import {examplePlants} from "../common/sampleData";
+import {navigate} from "../common/functions";
 
 export interface IPlantListProps {
     plants: IPlant[],
@@ -25,7 +25,6 @@ class PlantListPage extends React.Component<IPlantListProps, IPlantListState> {
             plants: this.props.plants,
         }
 
-        // this.fbDatabase = this.fbService.database.ref().child('plants');
         this.watering = this.watering.bind(this);
     }
 
@@ -52,11 +51,16 @@ class PlantListPage extends React.Component<IPlantListProps, IPlantListState> {
         this.props.savePlants(plants);
     }
 
+    navigateRegister = () => {
+        navigate('/register');
+    }
+
     render(): JSX.Element {
         const {plants} = this.state;
         return (
             <div className='plant-list-container'>
                 <h1>Plant List here!</h1>
+                <button onClick={this.navigateRegister}>Register Plant</button>
                 {plants.map( (plant, index) =>
                     <PlantCardComponent {...plant} watering={this.watering} key={index}/>
                 )}

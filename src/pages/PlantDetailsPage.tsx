@@ -48,8 +48,6 @@ class PlantDetailsPage extends React.Component<IPlantDetailsPageProps, IPlantDet
     componentDidUpdate(prevProps: Readonly<IPlantDetailsPageProps>, prevState: Readonly<IPlantDetailsPageState>, snapshot?: any) {
         if (prevProps !== this.props) {
             const { match: { params }} = this.props;
-            console.log('params: ', params);
-            console.log('this.props.plants: ', this.props.plants);
             this.props.plants.forEach(plant => {
                 if (plant.id === parseInt(params.id)) {
                     this.setState({
@@ -75,8 +73,8 @@ class PlantDetailsPage extends React.Component<IPlantDetailsPageProps, IPlantDet
                 <div className='body'>
                     <div>{description}</div>
                     <div className="data">
-                        <p>{`Last time watered: ${lastWatered.getMonth()}/${lastWatered.getDate()}/${lastWatered.getFullYear()}`}</p>
-                        <p>{`Next watering time: ${wateringDeadline.getMonth()}/${wateringDeadline.getDate()}/${wateringDeadline.getFullYear()}`}</p>
+                        <p>{`Last time watered: ${lastWatered.getMonth() + 1}/${lastWatered.getDate()}/${lastWatered.getFullYear()}`}</p>
+                        <p>{`Next watering time: ${wateringDeadline.getMonth() + 1}/${wateringDeadline.getDate()}/${wateringDeadline.getFullYear()}`}</p>
                         <p>{`Watering cycle: ${wateringCycle}`}</p>
                     </div>
                 </div>

@@ -1,14 +1,28 @@
-import {RESET_PLANTS, SAVE_PLANTS} from "./actionTypes";
+import {
+    ADD_PLANT,
+    SAVE_PLANTS,
+    OPEN_DYNAMIC_MODAL,
+    CLOSE_DYNAMIC_MODAL
+} from "./actionTypes";
 import {IPlant} from "../common/interfaces";
 
-export const savePlants = (plants: IPlant[]) => ({
+// Plant Actions
+export const savePlants = (plants: IPlant[]): object => ({
         type: SAVE_PLANTS,
         plants: plants
 });
 
-export const resetPlants = () => ({
-    type: RESET_PLANTS,
-    plants: undefined
+export const addPlant = (plant: IPlant): object => ({
+    type: ADD_PLANT,
+    plant: plant,
 });
 
-export {};
+// Modal Actions
+export const openDynamicModal = (modalData: any): object => ({
+    type: OPEN_DYNAMIC_MODAL,
+    data: modalData
+});
+
+export const closeDynamicModal = (): object => ({
+    type: CLOSE_DYNAMIC_MODAL,
+});
