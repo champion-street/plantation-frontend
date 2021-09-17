@@ -1,0 +1,161 @@
+body.dynamicModalOpen {
+    overflow: hidden;
+}
+
+.dynamicModalOpen .dynamicModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 5;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: scale(1) translate(-50%, -50%);
+    border: none;
+    outline: none;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody.top {
+    top: 110px;
+    transform: translate(-50%, 0);
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer {
+    position: relative;
+    width: 90vw;
+    max-width: 672px;
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.successNotification {
+    max-width: 564px;
+    min-height: 262px;
+    text-align: center;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.successNotification svg {
+    width: 64px;
+    height: 64px;
+    margin: 20px auto 35px auto;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.successNotification .dynamicModalContent h2 {
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: #000000;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.successNotification .dynamicModalContent p {
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    color: #545454;
+}
+
+.dynamicModalOpen .dynamicModalOverlay.ReactModal__Overlay--after-open .dynamicModalBody .dynamicModalContainer {
+    animation-name: zoomIn;
+    animation-duration: 0.5s;
+}
+
+.dynamicModalOpen .dynamicModalOverlay.ReactModal__Overlay--after-open.ReactModal__Overlay--before-close .dynamicModalBody .dynamicModalContainer {
+    animation-name: zoomOut;
+    animation-duration: 0.5s;
+    opacity: 0;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer .dynamicModalContent {
+    width: 100%;
+    max-width: 444px;
+    margin: 0 auto;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer .dynamicModalContent h2 {
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer .dynamicModalContent p {
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: #cccccc;
+    letter-spacing: 0;
+    margin-bottom: 15px;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer .dynamicModalContent .dynamicModalButtonsContainer {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer .dynamicModalContent .dynamicModalButtonsContainer button {
+    height: 55px;
+    width: 100%;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer .dynamicModalContent .dynamicModalButtonsContainer button.btn.btnCancelLight,
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer .dynamicModalContent .dynamicModalButtonsContainer button.btn.btnWhite {
+    margin-top: 10px;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer button.btn {
+    font-family: 'Roboto-Bold', sans-serif;
+}
+
+/* Error/Info/Account on Hold Modal */
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.infoModal {
+    width: 564px;
+    padding: 50px 60px;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.66);
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.infoModal h2 {
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 28px;
+    font-weight: 500;
+    text-align: left;
+    color: #000000;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.infoModal p {
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    font-weight: normal;
+    text-align: left;
+    color: #4a4a4a;
+    margin-top: 5px;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.infoModal button.primaryButton {
+    margin-top: 35px;
+}
+
+.dynamicModalOpen .dynamicModalOverlay .dynamicModalBody .dynamicModalContainer.infoModal button.cancelButton {
+    margin-top: 10px;
+}
+
+
+@media (max-width: 767px) {
+    .dynamicModalOpen .dynamicModalOverlay .dynamicModalBody.top {
+        top: 41px;
+    }
+}

@@ -19,24 +19,27 @@ class PlantRegisterPage extends React.Component<IPlantRegisterPageProps, IPlantR
         super(props);
         this.state = {
             name: '',
-            wateringCycle: 0,
+            wateringCycle: 1,
             description: '',
         }
     }
 
     private handleSubmit = () => {
+        const {name, wateringCycle} = this.state;
         const registrationTime: number = Date.now();
-        const plant: IPlant = {
-            id: registrationTime,
-            image: 'http://localhost:3000/images/placeholderflower.png',
-            name: this.state.name,
-            description: this.state.description,
-            wateringCycle: this.state.wateringCycle,
-            lastWatered: new Date(registrationTime),
-            wateringDeadline: new Date(registrationTime + (this.state.wateringCycle * 86400000)),
+        if (name && wateringCycle) {
+            const plant: IPlant = {
+                id: registrationTime,
+                image: 'http://localhost:3000/images/placeholderflower.png',
+                name: this.state.name,
+                description: this.state.description,
+                wateringCycle: this.state.wateringCycle,
+                lastWatered: new Date(registrationTime),
+                wateringDeadline: new Date(registrationTime + (this.state.wateringCycle * 86400000)),
+            }
+            this.props.addPlant(plant);
+            navigate('/list');
         }
-        this.props.addPlant(plant);
-        navigate('/list');
     }
 
 
@@ -75,6 +78,7 @@ class PlantRegisterPage extends React.Component<IPlantRegisterPageProps, IPlantR
                         type="number"
                         onChange={this.handleChange}
                         value={this.state.wateringCycle}
+                        min="1"
                     />
                     <button onClick={this.handleSubmit}>Submit</button>
                 </form>

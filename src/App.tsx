@@ -8,10 +8,10 @@ import HeaderComponent from "./components/HeaderComponent";
 import {connect} from "react-redux";
 import {savePlants} from "./redux/actions";
 import {IPlant} from "./common/interfaces";
-import DatabaseService from './services/firebase/DatabaseService';
 import {examplePlants} from "./common/sampleData";
 import PlantDetailsPage from "./pages/PlantDetailsPage";
 import PlantRegisterPage from "./pages/PlantRegisterPage";
+import DynamicModal from "./components/DynamicModal";
 
 export interface IAppProps {
     dynamicModalData: any;
@@ -25,8 +25,6 @@ class App extends React.Component<IAppProps> {
     constructor(props: any) {
         super(props);
 
-        // @ts-ignore
-        this.databaseService = new DatabaseService();
     }
 
     public static defaultProps = {
@@ -42,6 +40,9 @@ class App extends React.Component<IAppProps> {
     render(): any {
         return (
             <div className="App">
+                {this.props.dynamicModalData.openDynamicModal && (
+                    <DynamicModal modalData={this.props.dynamicModalData.data}/>
+                )}
                 <HeaderComponent/>
                 <Router history={history}>
                     <Switch>

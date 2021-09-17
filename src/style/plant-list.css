@@ -1,3 +1,29 @@
-.plant-list-container {
+.plant-list-page {
     text-align: center;
+}
+
+.plant-list-page .plant-list-container {
+    display: grid;
+    grid-template-columns: 100vw;
+}
+
+#register-button {
+    background: #adff2f;
+    cursor: pointer;
+    border-radius: 25px;
+    border: 1px solid blue;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 5px #0000ff;
+    transition: 1s;
+}
+
+#register-button:hover {
+    background: #9ffc12;
+    box-shadow: 0 0 20px #9ffc12;
+}
+
+@media (min-width: 600px) {
+    .plant-list-page .plant-list-container {
+        grid-template-columns: 33vw 33vw 33vw;
+    }
 }

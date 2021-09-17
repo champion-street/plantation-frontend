@@ -7,3 +7,9 @@ export interface IPlant {
     wateringDeadline: Date;
     wateringCycle: number;
 }
+
+export interface ISeed {
+    name: string;
+    description: string;
+    wateringCycle: number;
+}

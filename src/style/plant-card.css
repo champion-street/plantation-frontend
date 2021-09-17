@@ -1,8 +1,12 @@
 .plant-container {
     display: flex;
+    flex-direction: column;
     margin: 10px;
+    padding: 40px 0;
     box-shadow: 0px 0px 8px 0px  black;
     border-radius: 5px;
+    width: 80vw;
+    justify-self: center;
 }
 
 .plant-image-container {
@@ -11,7 +15,7 @@
 
 .plant-data {
     flex: 70%;
-    text-align: left;
+    text-align: center;
 }
 
 .plant-data h2 {
@@ -22,7 +26,11 @@
     margin: 0;
 }
 
-
+@media (min-width: 600px) {
+    .plant-container {
+        width: 20vw;
+    }
+}
 
 .plant-image {
     top: 5px;
